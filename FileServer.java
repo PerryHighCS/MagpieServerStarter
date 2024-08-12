@@ -88,6 +88,9 @@ public class FileServer implements HttpHandler {
     private void handleFileRequest(HttpExchange exchange, String requestedPath) {
         int errorCode = HttpURLConnection.HTTP_NOT_FOUND; // If there is an error, assume it's a 404 error
         
+        // Replace path separators in the request path with the system's file separator
+        requestedPath = requestedPath.replace("/", File.separator);
+
         // Check if the requested file exists in the root folder
         Path file = findFile(requestedPath);
 
@@ -174,7 +177,7 @@ public class FileServer implements HttpHandler {
 
         // Loop through the files found and add them to the file map for quick access
         for (Path file : files) {
-            fileMap.put("/" + rootFolder.relativize(file).toString(), file);
+            fileMap.put(File.separator + rootFolder.relativize(file).toString(), file);
         }
 
         // Update the cache time to the current time
