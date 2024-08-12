@@ -42,7 +42,17 @@ footer a {
     margin-bottom: 1em;
 }
 
-#userInput button {
+#msg {
+    width: stretch;
+    width: fill-available;
+    width: -webkit-fill-available;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: .5em;
+}
+
+#send {
     padding: .5em 1em;
     font-size: 1em;
     border: 1px solid #333;
@@ -52,18 +62,8 @@ footer a {
     cursor: pointer;
 }
 
-#userInput button:hover {
+#send:hover {
     background-color: #1927ec;
-}
-
-#msg {
-    width: stretch;
-    width: fill-available;
-    width: -webkit-fill-available;
-    padding: 1em;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: .5em;
 }
 
 .chatmsg {
