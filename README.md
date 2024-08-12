@@ -1,7 +1,7 @@
 # MagpieServer
 An http version of the AP Magpie Chatbot with a backend Java server and an HTML frontend.
 
-##Explore:
+## Explore:
 1. We will be extending a simple Http server that is designed to serve static files
 from a public folder. The user can access the server and it will automatically serve
 an index.html file if there is one in the public folder.
