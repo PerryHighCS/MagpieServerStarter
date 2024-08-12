@@ -9,9 +9,6 @@
     </head>
     <body>
         <div id="chat">
-            <div class="chatmsg">
-                <img src="/img/magpie.png" alt="Magpie said: ">Let's chat.
-            </div>
         </div>
 
         <footer>
@@ -24,35 +21,6 @@
         </footer>
 
         <script lang="javascript">
-function chat(e) {
-    e.preventDefault();
-
-    const chat = document.getElementById('chat');
-    const msgBox = document.getElementById('msg');
-
-    const msg = msgBox.value;
-    msgBox.value = '';
-    
-    const userBubble = chatBubble(msg, '/img/user.png', "You said: ")
-    chat.appendChild(userBubble);
-    userBubble.scrollIntoView({behavior: 'smooth'});
-    
-    fetch('/chat', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'plain/text'
-        },
-        body: msg
-    })
-    .then(response => response.text())
-    .then(response => {
-        const magpieBubble = chatBubble(response, '/img/magpie.png', "Magpie said: ");
-        chat.appendChild(magpieBubble);
-        magpieBubble.scrollIntoView({behavior: 'smooth'});
-    });
-
-    return false;
-}
 
 function chatBubble(msg, img, alt) {
     const bubble = document.createElement('div');
@@ -62,6 +30,9 @@ function chatBubble(msg, img, alt) {
 
     return bubble;
 }
+
+chatBubble("Let's chat", "/img/magpie.png", "Magpie says:");
+            
         </script>
     </body>
 </html>
