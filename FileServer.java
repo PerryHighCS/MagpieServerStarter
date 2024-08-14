@@ -249,8 +249,10 @@ public class FileServer implements HttpHandler {
         // Create a new HTTP server and set the file handler to serve files from the root folder
         final HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.setExecutor(null); // create a single-threaded server
-        
+
+        // Listen for requests to the root folder
         server.createContext("/", new FileServer(rootFolder));
+        
         return server;
     }
 
