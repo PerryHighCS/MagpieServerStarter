@@ -42,7 +42,7 @@ public class FileServer implements HttpHandler {
      * Create a new FileServer that serves files from the specified folder
      * @param rootFolder The folder to serve files from
      */
-    public FileServer(String rootFolder) {
+    private FileServer(String rootFolder) {
         this.rootFolder = new File(rootFolder).toPath();
 
         fileMap = new HashMap<String, Path>();
